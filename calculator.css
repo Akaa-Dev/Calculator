@@ -1,6 +1,11 @@
+html{
+background: linear-gradient(to bottom right,#F2F4FF,#F4AFB0,#F5E9E2);
+height: 100%;
+}
+
 #display{
     height: 100px;
-    text-align: center;
+    text-align: end;
 }
 .button{
     border-radius: 49%;
@@ -27,7 +32,7 @@
 #sign-dsp{
     margin: 3px;
 }
-.history-panel{
+#history-panel{
     position: absolute;
     z-index: 2;
     background-color:#f14668;
@@ -39,12 +44,12 @@
     height: 380px;
     overflow: auto;
     scroll-behavior: smooth;
+    text-align: end;
 }
 
 .history-list::-webkit-scrollbar{
     background-color: #f14668;
     width: 2px;
-    
 }
 .history-list::-webkit-scrollbar-thumb{
     background-color: rgb(211, 219, 226);
@@ -57,3 +62,12 @@
     margin-left: 15px;
     background-color: #F5F3F5;
 }
+#sec-dsp{
+    font-size: 17px;
+    color: lightblue;
+}
+/*#equals{
+    background-color: #55E226;
+    color: rgb(255, 255, 255);
+}*/
+

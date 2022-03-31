@@ -5,7 +5,10 @@ const numberDisplayRight = document.getElementById('num-dsp-right');
 const numberDisplayLeft = document.getElementById('num-dsp-left');
 const secDisp = document.getElementById('sec-dsp');
 const historyBtn = document.getElementById('history');
-const historyPanel = document.querySelector('history-panel');
+const historyPanel = document.getElementById('history-panel');
+const historyList = document.querySelector('.history-list')
+const clrHist = document.getElementById('clear-history-btn');
+const historyEntry = document.getElementById('history-entry');
 let operatorIsDefined = false;
 let operation = 'calculation';
 let processed = false;
@@ -18,6 +21,7 @@ buttons.addEventListener('click', (event) => {
             numberDisplayRight.innerText = '';
             numberDisplayLeft.innerText = '';
             operator.innerText = '';
+            updateSecDisplay();
             operatorIsDefined = false;
             processed = false;
             break;
@@ -28,6 +32,7 @@ buttons.addEventListener('click', (event) => {
             operator.innerText = '%';
             operation = 'percent';
             operatorIsDefined = true;
+            updateSecDisplay();
             processed = false;
             break;
 
@@ -40,7 +45,7 @@ buttons.addEventListener('click', (event) => {
             }
             break;
         case 'seven':
-            if (numberDisplayLeft.innerText[0] == '0' && numberDisplayLeft.innerText[1] != '.') {
+            if (numberDisplayLeft.innerText[0] == '0' && numberDisplayLeft.innerText[1] != '.'&& processed==true) {
                 numberDisplayLeft.innerText = '7';
             } else if (numberDisplayRight.innerText[0] == '0' && numberDisplayRight.innerText[1] != '.') {
                 numberDisplayRight.innerText = '7';
@@ -54,6 +59,7 @@ buttons.addEventListener('click', (event) => {
                     } else {
                         numberDisplayRight.innerText += '7';
                     }
+                    updateSecDisplay();
                 }
             } else {
                 numberDisplayLeft.innerText = '7';
@@ -61,7 +67,7 @@ buttons.addEventListener('click', (event) => {
             }
             break;
         case 'eight':
-            if (numberDisplayLeft.innerText[0] == '0' && numberDisplayLeft.innerText[1] != '.') {
+            if (numberDisplayLeft.innerText[0] == '0' && numberDisplayLeft.innerText[1] != '.'&& processed==true) {
                 numberDisplayLeft.innerText = '8';
             } else if (numberDisplayRight.innerText[0] == '0' && numberDisplayRight.innerText[1] != '.') {
                 numberDisplayRight.innerText = '8';
@@ -75,6 +81,7 @@ buttons.addEventListener('click', (event) => {
                     } else {
                         numberDisplayRight.innerText += '8';
                     }
+                    updateSecDisplay();
                 }
             } else {
                 numberDisplayLeft.innerText = '8';
@@ -82,7 +89,7 @@ buttons.addEventListener('click', (event) => {
             }
             break;
         case 'nine':
-            if (numberDisplayLeft.innerText[0] == '0' && numberDisplayLeft.innerText[1] != '.') {
+            if (numberDisplayLeft.innerText[0] == '0' && numberDisplayLeft.innerText[1] != '.'&& processed==true) {
                 numberDisplayLeft.innerText = '9';
             } else if (numberDisplayRight.innerText[0] == '0' && numberDisplayRight.innerText[1] != '.') {
                 numberDisplayRight.innerText = '9';
@@ -96,6 +103,7 @@ buttons.addEventListener('click', (event) => {
                     } else {
                         numberDisplayRight.innerText += '9';
                     }
+                    updateSecDisplay();
                 }
             } else {
                 numberDisplayLeft.innerText = '9';
@@ -113,7 +121,7 @@ buttons.addEventListener('click', (event) => {
             break;
 
         case 'four':
-            if (numberDisplayLeft.innerText[0] == '0' && numberDisplayLeft.innerText[1] != '.') {
+            if (numberDisplayLeft.innerText[0] == '0' && numberDisplayLeft.innerText[1] != '.'&& processed==true) {
                 numberDisplayLeft.innerText = '4';
             } else if (numberDisplayRight.innerText[0] == '0' && numberDisplayRight.innerText[1] != '.') {
                 numberDisplayRight.innerText = '4';
@@ -127,6 +135,7 @@ buttons.addEventListener('click', (event) => {
                     } else {
                         numberDisplayRight.innerText += '4';
                     }
+                    updateSecDisplay();
                 }
             } else {
                 numberDisplayLeft.innerText = '4';
@@ -135,7 +144,7 @@ buttons.addEventListener('click', (event) => {
             break;
 
         case 'five':
-            if (numberDisplayLeft.innerText[0] == '0' && numberDisplayLeft.innerText[1] != '.') {
+            if (numberDisplayLeft.innerText[0] == '0' && numberDisplayLeft.innerText[1] != '.'&& processed==true) {
                 numberDisplayLeft.innerText = '5';
             } else if (numberDisplayRight.innerText[0] == '0' && numberDisplayRight.innerText[1] != '.') {
                 numberDisplayRight.innerText = '5';
@@ -149,6 +158,7 @@ buttons.addEventListener('click', (event) => {
                     } else {
                         numberDisplayRight.innerText += '5';
                     }
+                    updateSecDisplay();
                 }
             } else {
                 numberDisplayLeft.innerText = '5';
@@ -157,7 +167,7 @@ buttons.addEventListener('click', (event) => {
             break;
 
         case 'six':
-            if (numberDisplayLeft.innerText[0] == '0' && numberDisplayLeft.innerText[1] != '.') {
+            if (numberDisplayLeft.innerText[0] == '0' && numberDisplayLeft.innerText[1] != '.'&& processed==true) {
                 numberDisplayLeft.innerText = '6';
             } else if (numberDisplayRight.innerText[0] == '0' && numberDisplayRight.innerText[1] != '.') {
                 numberDisplayRight.innerText = '6';
@@ -171,6 +181,7 @@ buttons.addEventListener('click', (event) => {
                     } else {
                         numberDisplayRight.innerText += '6';
                     }
+                    updateSecDisplay();
                 }
             } else {
                 numberDisplayLeft.innerText = '6';
@@ -188,7 +199,7 @@ buttons.addEventListener('click', (event) => {
             break;
 
         case 'one':
-            if (numberDisplayLeft.innerText[0] == '0' && numberDisplayLeft.innerText[1] != '.') {
+            if (numberDisplayLeft.innerText[0] == '0' && numberDisplayLeft.innerText[1] != '.'&& processed==true) {
                 numberDisplayLeft.innerText = '1';
             } else if (numberDisplayRight.innerText[0] == '0' && numberDisplayRight.innerText[1] != '.') {
                 numberDisplayRight.innerText = '1';
@@ -202,6 +213,7 @@ buttons.addEventListener('click', (event) => {
                     } else {
                         numberDisplayRight.innerText += '1';
                     }
+                    updateSecDisplay();
                 }
             } else {
                 numberDisplayLeft.innerText = '1';
@@ -210,7 +222,7 @@ buttons.addEventListener('click', (event) => {
             break;
 
         case 'two':
-            if (numberDisplayLeft.innerText[0] == '0' && numberDisplayLeft.innerText[1] != '.') {
+            if (numberDisplayLeft.innerText[0] == '0' && numberDisplayLeft.innerText[1] != '.'&& processed==true) {
                 numberDisplayLeft.innerText = '2';
             } else if (numberDisplayRight.innerText[0] == '0' && numberDisplayRight.innerText[1] != '.') {
                 numberDisplayRight.innerText = '2';
@@ -224,7 +236,7 @@ buttons.addEventListener('click', (event) => {
                     } else {
                         numberDisplayRight.innerText += '2';
                     }
-
+                    updateSecDisplay();
                 }
             } else {
                 numberDisplayLeft.innerText = '2';
@@ -233,8 +245,8 @@ buttons.addEventListener('click', (event) => {
             break;
 
         case 'three':
-            if (numberDisplayLeft.innerText[0] == '0' && numberDisplayLeft.innerText[1] != '.') {
-                numberDisplayLeft.innerText = '3';
+            if (numberDisplayLeft.innerText[0] == '0' && numberDisplayLeft.innerText[1] != '.' && processed==true) { // replacing zero in the begining of a number to just a number, e.g: 03 == 3..
+                numberDisplayLeft.innerText = '3'; // and checking for decimal.
             } else if (numberDisplayRight.innerText[0] == '0' && numberDisplayRight.innerText[1] != '.') {
                 numberDisplayRight.innerText = '3';
             } else if (!processed) {
@@ -247,6 +259,7 @@ buttons.addEventListener('click', (event) => {
                     } else {
                         numberDisplayRight.innerText += '3';
                     }
+                    updateSecDisplay();
                 }
             } else {
                 numberDisplayLeft.innerText = '3';
@@ -274,6 +287,7 @@ buttons.addEventListener('click', (event) => {
                 } else if (operatorIsDefined == true && numberDisplayRight.innerText[0] != 0) {
                     numberDisplayRight.innerText += '0';
                 }
+                updateSecDisplay();
             } else {
                 numberDisplayLeft.innerText = '0';
                 processed = false;
@@ -311,17 +325,19 @@ buttons.addEventListener('click', (event) => {
             break;
 
         case 'equals':
-            if((operation != 'percent' && numberDisplayRight.innerText =='') || numberDisplayLeft.innerText ==''){
+            if ((operation != 'percent' && numberDisplayRight.innerText == '') || numberDisplayLeft.innerText == '') {
                 numberDisplayLeft.innerText = numberDisplayLeft.innerText;
-            }else{
+            } else {
+                secDisp.innerText = '';
                 let result = (calculator(operation, numberDisplayLeft, numberDisplayRight)).toPrecision(10);
+                addTask(numberDisplayLeft, numberDisplayRight, parseFloat(result).toPrecision());
                 numberDisplayRight.innerText = '';
                 numberDisplayLeft.innerText = parseFloat(result).toPrecision();
                 operator.innerText = '';
                 operatorIsDefined = false;
                 processed = true;
             }
-            
+
             break;
     }
 
@@ -349,6 +365,7 @@ let calculator = (operation, numberDisplayLeft, numberDisplayRight) => {
         case 'percent':
             if (numberDisplayRight.innerText == '') {
                 result = parseFloat(numberDisplayLeft.innerText) / 100;
+
             } else {
                 result = (parseFloat(numberDisplayLeft.innerText) / 100) * parseFloat(numberDisplayRight.innerText);
             }
@@ -359,6 +376,16 @@ let calculator = (operation, numberDisplayLeft, numberDisplayRight) => {
     }
     return result;
 }
+// updateSecDisplay shows a live result of calculations before the equals button is hit. It changes as numbers on the right side of the operator changes. 
+let updateSecDisplay = () => {
+    let result = (calculator(operation, numberDisplayLeft, numberDisplayRight)).toPrecision(10);
+    if ((operation != 'percent' && numberDisplayRight.innerText == '') || operatorIsDefined == false) {
+        secDisp.innerText = '';
+    } else {
+        secDisp.innerText = parseFloat(result).toPrecision();
+    }
+}
+
 backSpace.addEventListener('click', () => {
     let inputed = '';
     let updated = '';
@@ -381,17 +408,46 @@ backSpace.addEventListener('click', () => {
             updated = inputed.join('');
             numberDisplayRight.innerText = updated;
         }
-
+        updateSecDisplay();
     }
-    processed =false;
+
+    processed = false;
 });
 
-historyBtn.addEventListener('click',()=>{
-    
-    if(historyBtn.innerHTML == '<i class="fa-2x fa-solid fa-calculator"></i>'){
-   historyBtn.innerHTML = '<i class="fa-2x fa-solid fa-clock-rotate-left"></i>';
-   }else{
-    historyBtn.innerHTML = '<i class="fa-2x fa-solid fa-calculator"></i>';
-   // historyPanel.= 'block';
-   }
+historyBtn.addEventListener('click', () => {
+    if (historyBtn.innerHTML == '<i class="fa-2x fa-solid fa-calculator"></i>') {
+        historyBtn.innerHTML = '<i class="fa-2x fa-solid fa-clock-rotate-left"></i>';
+        historyPanel.style.display = 'none';
+    } else if (historyBtn.innerHTML = '<i class="fa-2x fa-solid fa-clock-rotate-left"></i>') {
+        historyBtn.innerHTML = '<i class="fa-2x fa-solid fa-calculator"></i>';
+        historyPanel.style.display = 'block';
+    }
 })
+
+clrHist.addEventListener('click', () => {
+    while (historyEntry.firstChild) {
+        historyEntry.removeChild(historyEntry.firstChild);
+    }
+})
+
+//addTask adds the calculation task to the history list; the history does not exceed twenty.
+let addTask = (numberDisplayLeft, numberDisplayRight, result) => {
+    let taskItem = document.createElement('li');
+    let task = document.createElement('div');
+    let finalResult = document.createElement('div');
+    let leftInput = numberDisplayLeft.innerText;
+    let rightInput = numberDisplayRight.innerText;
+    let sign = operator.innerHTML;
+
+    task.innerHTML = `${leftInput} ${sign} ${rightInput}`;
+    finalResult.textContent = `=${result}`;
+    taskItem.appendChild(task);
+    taskItem.appendChild(finalResult);
+    while(historyEntry.children.length>=20){  
+        historyEntry.removeChild(historyEntry.firstChild);
+    }
+    historyEntry.appendChild(taskItem);
+    taskItem.style.marginBottom = '20px';
+    finalResult.style.color = '#55E226';
+    finalResult.style.fontSize = "18px";
+}
